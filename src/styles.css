@@ -2,8 +2,4 @@
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: business --default;
-};
-
-/* @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, cupcake;
-} */
+}
