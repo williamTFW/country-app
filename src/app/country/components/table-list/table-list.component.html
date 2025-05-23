@@ -8,18 +8,31 @@
       <th>Name</th>
       <th>Capital</th>
       <th>Poblation</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <!-- Table rows  -->
+    @for (country of countries(); track country.cca2; let index = $index) {
     <tr>
-      <th>1</th>
-      <td>Cy Ganderton</td>
-      <td>Quality Control Specialist</td>
-      <td>Blue</td>
-      <td>Blue</td>
-      <td>Blue</td>
+      <th>{{ index + 1 }}</th>
+      <td>{{ country.flag }}</td>
+      <td>
+        <img [src]="country.flagSvg" [alt]="country.name" class="w-8" />
+      </td>
+      <td>{{ country.name }}</td>
+      <td>{{ country.capital }}</td>
+      <td>
+        <span class="badge badge-outline badge-success">
+          {{ country.population | number }}
+        </span>
+      </td>
+      <td>
+        <a href="#" class="btn btn-sm btn-info hover:bg-cyan-500"
+          >More Information</a
+        >
+      </td>
     </tr>
-    <!-- row 2 -->
+    }
   </tbody>
 </table>

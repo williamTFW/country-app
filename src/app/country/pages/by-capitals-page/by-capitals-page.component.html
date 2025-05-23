@@ -1,12 +1,16 @@
 <section class="bg-green-600 container my-5 mx-auto">
   <div class="bg-indigo-600 content-center justify-items-center">
     <!-- Content Search Btn -->
-    <search-input placeholder="example: Bogota, Lima" btnTxt="Search Capital" />
+    <search-input
+      placeholder="example: Bogota, Lima"
+      btnTxt="Search Capital"
+      (value)="onSearch($event)"
+    />
   </div>
 
   <!-- Table Content -->
   <div class="overflow-x-auto border border-base-content/5 bg-base-100">
     <!-- Table -->
-    <table-list />
+    <table-list [countries]="countries()" />
   </div>
 </section>
