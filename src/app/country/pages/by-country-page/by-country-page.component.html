@@ -4,12 +4,17 @@
     <search-input
       placeholder="example: Colombia, Perú"
       btnTxt="Search Country"
+      (value)="query.set($event)"
     />
   </div>
 
   <!-- Table Content -->
   <div class="overflow-x-auto border border-base-content/5 bg-base-100">
+    @if (countryResource.error()) {
+    <msg-alert [msgAlert]="countryResource.error()" msgType="error"></msg-alert>
+    } @if (countryResource.hasValue()) {
     <!-- Table -->
-    <table-list [countries]="[]" />
+    <table-list [countries]="countryResource.value()" />
+    }
   </div>
 </section>
