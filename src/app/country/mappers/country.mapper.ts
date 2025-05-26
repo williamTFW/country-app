@@ -6,12 +6,15 @@ export class CountryMapper {
     rCountries: RESTCountryResponse
   ): ICountry {
     return {
-      capital: rCountries.capital.join(','),
+      capital: rCountries.capital,
       cca2: rCountries.cca2,
       flag: rCountries.flag,
       flagSvg: rCountries.flags.svg,
       name: rCountries.translations['spa'].common ?? 'No Spanish Name!',
       population: rCountries.population,
+      region: rCountries.region,
+      subRegion: rCountries.subregion,
+      coatOfArms: rCountries.coatOfArms.svg,
     };
   }
 

@@ -1,4 +1,4 @@
-<div class="bg-amber-400 mb-5">
+<div class="mb-5">
   <input
     type="text"
     class="input input-bordered mr-2 w-55"
@@ -6,6 +6,7 @@
     autofocus
     #txtSearchByCap
     (keyup.enter)="value.emit(txtSearchByCap.value)"
+    (keyup)="inpuyValue.set(txtSearchByCap.value)"
   />
   <button
     class="btn btn-primary font-bold"

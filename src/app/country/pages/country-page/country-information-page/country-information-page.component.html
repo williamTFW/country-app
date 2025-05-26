@@ -1,0 +1,50 @@
+<div class="flex flex-col gap-5 text-center">
+  <div>
+    <h2 class="text-6xl">Country: {{ country().name }}</h2>
+    <h4 class="text-2xl font-thin mt-6">
+      Poblation: {{ country().population | number }}
+    </h4>
+  </div>
+
+  <div class="stats stats-vertical lg:stats-horizontal shadow">
+    <div class="stat">
+      <div class="stat-title">Name</div>
+      <div class="stat-value">{{ country().name }}</div>
+      <div class="stat-desc flex gap-2">
+        {{ country().cca2
+        }}<img class="w-7" src="{{ country().flagSvg }}" alt="" />
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Poblation</div>
+      <div class="stat-value">
+        {{ country().population | number }}
+      </div>
+      <div class="stat-desc">{{ currentYear }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Region</div>
+      <div class="stat-value">{{ country().region }}</div>
+      <div class="stat-desc">Sub Region: {{ country().subRegion }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Coat Of Arms</div>
+      <div class="stat-value m-auto">
+        <img class="w-8" src="{{ country().coatOfArms }}" alt="" />
+      </div>
+      <div class="stat-desc">{{ country().name }}</div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <figure class="diff aspect-16/9" tabindex="0">
+    <div class="diff-item-1" role="img" tabindex="0">
+      <img alt="{{ country().name }}" src="{{ country().flagSvg }}" />
+    </div>
+    <div class="diff-item-2 blur-xs brightness-90" role="img">
+      <img alt="{{ country().name }}" src="{{ country().flagSvg }}" />
+    </div>
+    <div class="diff-resizer"></div>
+  </figure>
+</section>
