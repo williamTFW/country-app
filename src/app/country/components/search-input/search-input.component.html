@@ -6,7 +6,8 @@
     autofocus
     #txtSearchByCap
     (keyup.enter)="value.emit(txtSearchByCap.value)"
-    (keyup)="inpuyValue.set(txtSearchByCap.value)"
+    (keyup)="inputValue.set(txtSearchByCap.value)"
+    [value]="inputValue()"
   />
   <button
     class="btn btn-primary font-bold"

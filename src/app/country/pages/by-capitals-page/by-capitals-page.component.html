@@ -5,6 +5,7 @@
       placeholder="example: Bogota, Lima"
       btnTxt="Search Capital"
       (value)="query.set($event)"
+      [initialValue]="query()"
     />
     <!-- (value)="onSearch($event)" -->
   </div>

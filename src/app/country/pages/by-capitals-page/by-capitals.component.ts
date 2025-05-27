@@ -1,10 +1,18 @@
-import { Component, inject, resource, signal } from '@angular/core';
+import {
+  Component,
+  inject,
+  linkedSignal,
+  resource,
+  signal,
+} from '@angular/core';
 import { firstValueFrom, of } from 'rxjs';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { SearchInputComponent } from '../../components/search-input/search-input.component';
 import { TableListComponent } from '../../components/table-list/table-list.component';
 import { MsgAlertComponent } from '../../components/msg-alert/msg-alert.component';
 import { CountryService } from '../../services/country.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '@environments/environments';
 
 @Component({
   selector: 'app-by-capitals',
@@ -13,13 +21,22 @@ import { CountryService } from '../../services/country.service';
 })
 export class ByCapitalsComponent {
   countryServices = inject(CountryService);
-  query = signal('');
+  activatedRoute = inject(ActivatedRoute);
+  queryParam: string =
+    this.activatedRoute.snapshot.queryParamMap.get('query') ?? '';
+  query = linkedSignal(() => this.queryParam);
+  route = inject(Router);
 
   countryResource = rxResource({
     request: () => ({ query: this.query().toLowerCase() }),
     loader: ({ request }) => {
       if (!request.query) return of([]);
       console.log(request.query);
+      this.route.navigate([`country/by-capital`], {
+        queryParams: {
+          query: request.query,
+        },
+      });
       return this.countryServices.searchByCapital(request.query);
     },
   });

@@ -6,7 +6,8 @@ export class CountryMapper {
     rCountries: RESTCountryResponse
   ): ICountry {
     return {
-      capital: rCountries.capital,
+      /* capital: rCountries.capital, */
+      capital: rCountries.capital?.join(','),
       cca2: rCountries.cca2,
       flag: rCountries.flag,
       flagSvg: rCountries.flags.svg,

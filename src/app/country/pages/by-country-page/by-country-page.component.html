@@ -6,6 +6,7 @@
       btnTxt="Search Country"
       (value)="query.set($event)"
       [debounceTime]="600"
+      [initialValue]="query()"
     />
   </div>
 

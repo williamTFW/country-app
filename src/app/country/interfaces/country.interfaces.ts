@@ -3,9 +3,10 @@ export interface ICountry {
   flag: string;
   flagSvg: string;
   name: string;
-  capital: string[];
+  capital: string;
   population: number;
   region: string;
   subRegion: string;
   coatOfArms: string;
 }
+/* capital: string[]; */
